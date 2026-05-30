@@ -40,7 +40,8 @@ final class Trader {
         exchangeOpen = false
     }
 
-    func start() {
+    
+    func run() -> String {
 
         while exchangeOpen {
 
@@ -55,14 +56,13 @@ final class Trader {
             let basePrice =
                 Self.basePrices[index]
 
-            let priceVariation =
+            let variation =
                 Double.random(
                     in: -0.05...0.05
                 )
 
             let price =
-                basePrice *
-                (1 + priceVariation)
+                basePrice * (1 + variation)
 
             let quantity =
                 Int.random(in: 1...50)
@@ -97,6 +97,8 @@ final class Trader {
                     )
             )
         }
+
+        return summary()
     }
 
     func summary() -> String {

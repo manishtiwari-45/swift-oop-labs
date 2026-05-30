@@ -25,7 +25,7 @@ final class MatchingEngine {
         exchangeOpen = false
     }
 
-    func start() {
+    func run() -> String {
 
         print("[Engine] Started")
 
@@ -38,7 +38,6 @@ final class MatchingEngine {
                     }
                 )
             else {
-
                 break
             }
 
@@ -57,6 +56,8 @@ final class MatchingEngine {
         }
 
         print("[Engine] Stopped")
+
+        return summary()
     }
 
     func summary() -> String {
