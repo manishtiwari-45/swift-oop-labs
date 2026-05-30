@@ -80,41 +80,55 @@ final class OrderBook {
         return nil
     }
 
-    func takeBestMatch()
-        -> MatchedPair? {
+    func takeBestMatch(
+    exchangeOpen: () -> Bool
+) -> MatchedPair? {
+
+    condition.lock()
+
+    defer {
+        condition.unlock()
+    }
+
+    while true {
+
+        if let (
+            buyIndex,
+            sellIndex
+        ) = findMatch() {
+
+            let buy =
+                buyOrders.remove(
+                    at: buyIndex
+                )
+
+            let sell =
+                sellOrders.remove(
+                    at: sellIndex
+                )
+
+            condition.signal()
+
+            return MatchedPair(
+                buyOrder: buy,
+                sellOrder: sell
+            )
+        }
+
+        if !exchangeOpen() {
+
+            return nil
+        }
+
+        condition.wait()
+    }
+    }
+    func wakeAll() {
 
         condition.lock()
 
-        defer {
-            condition.unlock()
-        }
+        condition.broadcast()
 
-        while true {
-
-            if let (
-                buyIndex,
-                sellIndex
-            ) = findMatch() {
-
-                let buy =
-                    buyOrders.remove(
-                        at: buyIndex
-                    )
-
-                let sell =
-                    sellOrders.remove(
-                        at: sellIndex
-                    )
-
-                condition.signal()
-
-                return MatchedPair(
-                    buyOrder: buy,
-                    sellOrder: sell
-                )
-            }
-
-            condition.wait()
-        }
+        condition.unlock()
     }
 }
