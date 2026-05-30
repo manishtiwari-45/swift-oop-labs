@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-labs}/Lab01-BFS-Graph",
+            "name": "Debug Lab01-BFS-Graph (Lab01-BFS-Graph)",
+            "target": "Lab01-BFS-Graph",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug Lab01-BFS-Graph (Lab01-BFS-Graph)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-labs}/Lab01-BFS-Graph",
+            "name": "Release Lab01-BFS-Graph (Lab01-BFS-Graph)",
+            "target": "Lab01-BFS-Graph",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release Lab01-BFS-Graph (Lab01-BFS-Graph)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-labs}/Lab02-World-Travel-Planner",
+            "name": "Debug Lab02-World-Travel-Planner (Lab02-World-Travel-Planner)",
+            "target": "Lab02-World-Travel-Planner",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug Lab02-World-Travel-Planner (Lab02-World-Travel-Planner)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:swift-labs}/Lab02-World-Travel-Planner",
+            "name": "Release Lab02-World-Travel-Planner (Lab02-World-Travel-Planner)",
+            "target": "Lab02-World-Travel-Planner",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release Lab02-World-Travel-Planner (Lab02-World-Travel-Planner)"
+        }
+    ]
+}
